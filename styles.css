@@ -1,0 +1,133 @@
+/* Mengatur margin dan padding dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling untuk body */
+body {
+    padding: 20px;
+}
+
+/* Styling untuk navigasi */
+nav.s-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+nav.s-container .logo {
+    height: 48px;
+    width: auto;
+}
+
+nav.s-container div {
+    margin: 0 10px;
+    color: black;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Styling untuk konten utama */
+main.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Form styling */
+form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 45%;
+    background-color: #f9f9f9;
+}
+
+form h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input[type="text"], form input[type="date"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="radio"] {
+    margin-right: 5px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Styling untuk tabel */
+table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table td a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+table .delete {
+    text-align: center;
+    color: red;
+    cursor: pointer;
+}
+
+table .delete:hover {
+    color: darkred;
+}
+
+/* Styling untuk footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+}

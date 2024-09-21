@@ -1,11 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Form Belajar RevoU</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .s-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        nav .s-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav .logo {
+            margin-right: 20px;
+        }
+        nav .nav-items {
+            display: flex;
+        }
+        nav .nav-items div {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        main {
+            flex: 1;
+            padding: 20px 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        form input[type="text"], form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        form button:hover {
+            background: #555;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+        @media screen and (max-width: 768px) {
+            nav .s-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav .nav-items {
+                margin-top: 10px;
+            }
+            nav .nav-items div {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <div class="s-container">
+            <img src="https://cdn.prod.website-files.com/61af164800e38c4f53c60b4e/61af164800e38c11efc60b6d_RevoU.svg" alt="RevoU Logo" class="logo" width="48" height="48">
+            <div class="nav-items">
+                <div class="home">Home</div>
+                <div class="search">Search</div>
+                <div class="logout">Logout</div>
+            </div>
+        </div>
+    </nav>
+    <main class="s-container">
+        <h1>Form Belajar</h1>
+        <p>Ini adalah website latihan pertama yang telah ditingkatkan dan responsif</p>
+        
+        <div>
+            <h2>Form Input Data</h2>
+            <form id="dataForm">
+                <input type="text" id="nama" name="nama" placeholder="Nama" required>
+                <select id="jenisKelamin" name="jenisKelamin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+                <textarea id="pesan" name="pesan" placeholder="Pesan" required></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+        <div>
+            <h2>Tabel Data</h2>
+            <div class="table-responsive">
+                <table class="table_person">
+                    <tr>
+                        <th>Nama</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Pesan</th>
+                        <th>Profile</th>
+                        <th>Hapus</th>
+                    </tr>
+                    <tr>
+                        <td>Saihul Amri</td>
+                        <td>3 September 2024</td>
+                        <td>Laki-laki</td>
+                        <td>Testing my Website</td>
+                        <td><a href="#">Klik Disini</a></td>
+                        <td><button onclick="hapusBaris(this)">Hapus</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>Latihan RevoU 2024</footer>
+
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nama = document.getElementById('nama').value;
+            var jenisKelamin = document.getElementById('jenisKelamin').value;
+            var pesan = document.getElementById('pesan').value;
+            var table = document.querySelector('.table_person');
+            var newRow = table.insertRow(-1);
+            newRow.innerHTML = `
+                <td>${nama}</td>
+                <td>${new Date().toLocaleDateString('id-ID')}</td>
+                <td>${jenisKelamin}</td>
+                <td>${pesan}</td>
+                <td><a href="#">Klik Disini</a></td>
+                <td><button onclick="hapusBaris(this)">Hapus</button></td>
+            `;
+            this.reset();
+        });
+
+        function hapusBaris(btn) {
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
 </body>
 </html>
